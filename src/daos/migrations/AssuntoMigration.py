@@ -1,0 +1,5 @@
+definition = ""
+definition += "CREATE TABLE IF NOT EXISTS assuntos ("
+definition += "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+definition += "nome VACHAR(63)"
+definition += ")"
