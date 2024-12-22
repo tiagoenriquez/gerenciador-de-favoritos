@@ -1,4 +1,6 @@
 import tkinter as tk
+from src.controllers import FavoritoController
+from src.models.Favorito import Favorito
 from src.views.Frame import Frame as MyFrame
 from src.views.Menu import Menu
 
@@ -26,7 +28,10 @@ class CadastroFrame:
         self._url_entry = tk.Entry(panel)
         self._url_entry.grid(row=1, column=1, padx=8, pady=8)
         
-        button = tk.Button(panel, text="Salvar")
+        button = tk.Button(panel, text="Salvar", command=self._inserir)
         button.grid(row=2, column=0, columnspan=2, padx=8, pady=8)
 
         self._frame.manter_aberto()
+    
+    def _inserir(self):
+        FavoritoController.inserir(self._frame, Favorito(self._nome_entry.get(), self._url_entry.get()))
