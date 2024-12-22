@@ -10,7 +10,7 @@ def cadastrar(frame: Frame):
 def inserir(frame: Frame, favorito: Favorito):
     try:
         FavoritoService.inserir(favorito)
-        pesquisar(frame)
+        listar(frame)
     except Exception as e:
         mostrar_erro(frame, e.args[0])
         
@@ -18,6 +18,6 @@ def mostrar_erro(frame: Frame, erro: str):
     from src.views.ErroFrame import ErroFrame
     ErroFrame(frame, erro)
 
-def pesquisar(frame: Frame):
-    from src.views.PesquisaFrame import PesquisaFrame
-    PesquisaFrame(frame)
+def listar(frame: Frame):
+    from src.views.ListaFrame import ListaFrame
+    ListaFrame(frame, FavoritoService.listar())

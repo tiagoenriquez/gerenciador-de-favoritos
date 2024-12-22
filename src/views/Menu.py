@@ -10,10 +10,10 @@ class Menu:
         menu = tk.Menu(window)
         window.config(menu=menu)
         menu.add_command(label="Cadastrar", command=self._cadastrar)
-        menu.add_command(label="Pesquisar", command=self._pesquisar)
+        menu.add_command(label="Listar", command=self._listar)
 
     def _cadastrar(self):
         FavoritoController.cadastrar(self._frame)
     
-    def _pesquisar(self):
-        FavoritoController.pesquisar(self._frame)
+    def _listar(self):
+        FavoritoController.listar(self._frame)

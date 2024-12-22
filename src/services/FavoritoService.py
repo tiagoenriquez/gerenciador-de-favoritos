@@ -4,3 +4,6 @@ from src.repositories import FavoritoRepository
 
 def inserir(favorito: Favorito):
     FavoritoRepository.inserir(favorito)
+
+def listar():
+    return FavoritoRepository.listar()
