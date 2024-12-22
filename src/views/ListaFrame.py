@@ -1,5 +1,6 @@
+from functools import partial
 import tkinter as tk
-from tkinter import ttk
+from src.controllers import FavoritoController
 from src.models.Favorito import Favorito
 from src.views.Frame import Frame as MyFrame
 from src.views.Menu import Menu
@@ -32,7 +33,7 @@ class ListaFrame:
             abrir_button = tk.Button(favoritos_panel, text="Abrir")
             abrir_button.grid(row=i, column=1, padx=8, pady=8)
 
-            editar_button = tk.Button(favoritos_panel, text="Editar")
+            editar_button = tk.Button(favoritos_panel, text="Editar", command=partial(self._editar, favorito.id))
             editar_button.grid(row=i, column=2, padx=8, pady=8)
 
             excluir_button = tk.Button(favoritos_panel, text="Excluir")
@@ -46,3 +47,6 @@ class ListaFrame:
         )
 
         self._frame.manter_aberto()
+    
+    def _editar(self, id: int):
+        FavoritoController.editar(self._frame, id)

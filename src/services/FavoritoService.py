@@ -7,3 +7,6 @@ def inserir(favorito: Favorito):
 
 def listar():
     return FavoritoRepository.listar()
+
+def procurar(id: int):
+    return FavoritoRepository.procurar(id)

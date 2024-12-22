@@ -14,3 +14,10 @@ def listar():
         favoritos: list[Favorito] = []
         [favoritos.append(Favorito(row[1], row[2], row[0])) for row in cur.fetchall()]
         return favoritos
+
+def procurar(id: int):
+    with con:
+        cur = con.cursor()
+        cur.execute("select * from favoritos where id = ?", [id])
+        res = cur.fetchone()
+        return Favorito(res[1], res[2], res[0])
