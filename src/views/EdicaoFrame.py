@@ -8,6 +8,7 @@ from src.views.Menu import Menu
 class EdicaoFrame:
     def __init__(self, frame: MyFrame, favorito: Favorito):
         self._frame = frame
+        self._favorito = favorito
         self._frame.limpar()
         window = frame.window
         window.title("Edição de Favorito")
@@ -30,7 +31,13 @@ class EdicaoFrame:
         self._url_entry.grid(row=1, column=1, padx=8, pady=8)
         self._url_entry.insert(0, favorito.url)
         
-        button = tk.Button(panel, text="Atualizar")
+        button = tk.Button(panel, text="Atualizar", command=self._atualizar)
         button.grid(row=2, column=0, columnspan=2, padx=8, pady=8)
 
         self._frame.manter_aberto()
+    
+    def _atualizar(self):
+        FavoritoController.atualizar(
+            self._frame,
+            Favorito(self._nome_entry.get(), self._url_entry.get(), self._favorito.id)
+        )

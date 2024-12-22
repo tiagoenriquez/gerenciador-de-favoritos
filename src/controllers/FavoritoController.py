@@ -3,6 +3,13 @@ from src.services import FavoritoService
 from src.views.Frame import Frame
 
 
+def atualizar(frame: Frame, favorito: Favorito):
+    try:
+        FavoritoService.atualizar(favorito)
+        listar(frame)
+    except Exception as e:
+        mostrar_erro(frame, e.args[0])
+
 def cadastrar(frame: Frame):
     from src.views.CadastroFrame import CadastroFrame
     CadastroFrame(frame)

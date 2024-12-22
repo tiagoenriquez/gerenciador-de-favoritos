@@ -2,6 +2,11 @@ from src.connections.DatabaseConnection import con
 from src.models.Favorito import Favorito
 
 
+def atualizar(favorito: Favorito):
+    with con:
+        con.execute("update favoritos set nome = ?, url = ? where id = ?", favorito.data_updated())
+        con.commit()
+
 def inserir(favorito: Favorito):
     with con:
         con.execute("insert into favoritos (nome, url) values (?, ?)", favorito.data_inserted())

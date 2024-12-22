@@ -2,6 +2,9 @@ from src.models.Favorito import Favorito
 from src.repositories import FavoritoRepository
 
 
+def atualizar(favorito: Favorito):
+    FavoritoRepository.atualizar(favorito)
+
 def inserir(favorito: Favorito):
     FavoritoRepository.inserir(favorito)
 
