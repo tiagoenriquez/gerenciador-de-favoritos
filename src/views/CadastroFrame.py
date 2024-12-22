@@ -1,5 +1,6 @@
 import tkinter as tk
 from src.views.Frame import Frame as MyFrame
+from src.views.Menu import Menu
 
 
 class CadastroFrame:
@@ -8,6 +9,7 @@ class CadastroFrame:
         self._frame.limpar()
         window = frame.window
         window.title("Cadastro de Favorito")
+        Menu(frame)
 
         panel = tk.Frame(window)
         panel.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
