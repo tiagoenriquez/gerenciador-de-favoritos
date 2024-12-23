@@ -30,7 +30,7 @@ class ListaFrame:
             label = tk.Label(favoritos_panel, text=favorito.nome)
             label.grid(row=i, column=0, padx=8, pady=8)
 
-            abrir_button = tk.Button(favoritos_panel, text="Abrir")
+            abrir_button = tk.Button(favoritos_panel, text="Abrir", command=partial(self._abrir, favorito.url))
             abrir_button.grid(row=i, column=1, padx=8, pady=8)
 
             editar_button = tk.Button(favoritos_panel, text="Editar", command=partial(self._editar, favorito.id))
@@ -47,6 +47,9 @@ class ListaFrame:
         )
 
         self._frame.manter_aberto()
+    
+    def _abrir(self, url: str):
+        FavoritoController.abrir(self._frame, url)
     
     def _editar(self, id: int):
         FavoritoController.editar(self._frame, id)

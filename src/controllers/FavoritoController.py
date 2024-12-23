@@ -2,6 +2,12 @@ from src.models.Favorito import Favorito
 from src.services import FavoritoService
 from src.views.Frame import Frame
 
+def abrir(frame: Frame, url: str):
+    try:
+        FavoritoService.abrir(url)
+    except Exception as e:
+        mostrar_erro(frame, e.args[0])
+        
 
 def atualizar(frame: Frame, favorito: Favorito):
     try:

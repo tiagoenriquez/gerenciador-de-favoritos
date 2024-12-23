@@ -1,6 +1,13 @@
+import webbrowser
 from src.models.Favorito import Favorito
 from src.repositories import FavoritoRepository
 
+
+def abrir(url: str):
+    try:
+        webbrowser.open(url)
+    except:
+        raise Exception(f"Impossível abrir {url}.")
 
 def atualizar(favorito: Favorito):
     FavoritoRepository.atualizar(favorito)
