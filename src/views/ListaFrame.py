@@ -36,7 +36,7 @@ class ListaFrame:
             editar_button = tk.Button(favoritos_panel, text="Editar", command=partial(self._editar, favorito.id))
             editar_button.grid(row=i, column=2, padx=8, pady=8)
 
-            excluir_button = tk.Button(favoritos_panel, text="Excluir")
+            excluir_button = tk.Button(favoritos_panel, text="Excluir", command=partial(self._excluir, favorito.id))
             excluir_button.grid(row=i, column=3, padx=8, pady=8)
         
         favoritos_panel.update_idletasks()
@@ -50,3 +50,6 @@ class ListaFrame:
     
     def _editar(self, id: int):
         FavoritoController.editar(self._frame, id)
+    
+    def _excluir(self, id: int):
+        FavoritoController.excluir(self._frame, id)

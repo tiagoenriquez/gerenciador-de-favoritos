@@ -18,6 +18,10 @@ def editar(frame: Frame, id: int):
     from src.views.EdicaoFrame import EdicaoFrame
     EdicaoFrame(frame, FavoritoService.procurar(id))
 
+def excluir(frame: Frame, id: int):
+    FavoritoService.excluir(id)
+    listar(frame)
+
 def inserir(frame: Frame, favorito: Favorito):
     try:
         FavoritoService.inserir(favorito)

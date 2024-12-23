@@ -7,6 +7,11 @@ def atualizar(favorito: Favorito):
         con.execute("update favoritos set nome = ?, url = ? where id = ?", favorito.data_updated())
         con.commit()
 
+def excluir(id: int):
+    with con:
+        con.execute("delete from favoritos where id = ?", [id])
+        con.commit()
+
 def inserir(favorito: Favorito):
     with con:
         con.execute("insert into favoritos (nome, url) values (?, ?)", favorito.data_inserted())

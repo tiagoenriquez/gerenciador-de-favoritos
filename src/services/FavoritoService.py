@@ -5,6 +5,9 @@ from src.repositories import FavoritoRepository
 def atualizar(favorito: Favorito):
     FavoritoRepository.atualizar(favorito)
 
+def excluir(id: int):
+    FavoritoRepository.excluir(id)
+
 def inserir(favorito: Favorito):
     FavoritoRepository.inserir(favorito)
 
